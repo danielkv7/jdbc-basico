@@ -1,0 +1,10 @@
+Instruções para realizar levantar banco de dados
+
+==== MySQL ====
+
+No gradle deve-se adicionar no "build.gradle" (na parte de "dependencies") a linha abaixo
+compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.17'
+
+
+
+====   H2  ====
