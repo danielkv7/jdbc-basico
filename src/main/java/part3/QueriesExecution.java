@@ -12,11 +12,13 @@ public class QueriesExecution {
 
         // =========================== 1 - Consulta =================================================
         List<Aluno> alunos = alunoDAO.list();
+
         alunos.stream().forEach(System.out::println);
 
 
         // ======================= 1.1 - Consulta com filtro ========================================
         Aluno alunoParaConsulta = alunoDAO.getById(1);
+
         //System.out.println(alunoParaConsulta);
 
 
@@ -26,6 +28,7 @@ public class QueriesExecution {
                 43,
                 "SP"
         );
+
         //alunoDAO.create(alunoParaInsercao);
 
 
@@ -38,6 +41,7 @@ public class QueriesExecution {
         alunoParaAtualizar.setNome("Joaquim");
         alunoParaAtualizar.setIdade(18);
         alunoParaAtualizar.setEstado("RS");
+
         //alunoDAO.update(alunoParaAtualizar);
     }
 
