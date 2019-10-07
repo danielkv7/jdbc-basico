@@ -15,17 +15,16 @@ OUTRAS VERSÕES OU SISTEMAS OPERACIONAIS DEVERÃO UTILIZAR OUTRAS REFERẼNCIAS
 1 - === INSTALAR MYSQL ===
 ==========================
 
-- Atualizar repositório
-sudo apt-get update
+1 - Atualizar repositório
+sudo apt update
 
-- Instalar MySQL
-sudo apt-get install mysql-server
+2 - Instalar MySQL
+sudo apt install mysql-server
 
-
-- Verificar se instalação foi um sucesso (deve aparecer a versão do MySQL instalado).
+3 - Verificar se instalação foi um sucesso (deve aparecer a versão do MySQL instalado).
 mysql --version
 
-- (OPCIONAL) (NÂO UTILIZEI NA AULA) Trocar valores defaults para aumentar segurança
+4 - (OPCIONAL) (NÂO UTILIZEI NA AULA E NÂO SERÁ NECESSÀRIO PARA AS OUTRAS ETAPAS!) Trocar valores defaults para aumentar segurança
 sudo mysql_secure_installation
 
 
@@ -33,27 +32,33 @@ sudo mysql_secure_installation
 2 - === CONFIGURAR USUÁRIO E SENHA ===
 ======================================
 
-- Acessar banco de dados MySQL
+1 - Acessar banco de dados MySQL
 sudo mysql
 
-- Adicionar senha "password" ao usuário "root" (Rodar no prompt do  MySQL)
+2 - Adicionar senha "password" ao usuário "root" (Rodar no prompt do  MySQL)
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 
--- Recarregar permissões de acesso ao banco de dados (Rodar no prompt do  MySQL)
+3 - Recarregar permissões de acesso ao banco de dados (Rodar no prompt do  MySQL)
 FLUSH PRIVILEGES;
 
+4 - Sair do prompt do MySQL
+quit;
+
+Obs: A partir de agora, para acessar o mysql deverá ser utilizado o comando abaixo.
+Quando pedir a senha, deverá colocar a senha: password
+mysql -u root -p
 
 ===============================================
 3 - === INSTALAR MYSQL WORKBENCH (OPCIONAL) ===
 ===============================================
 
-- Atualizar repositório
+1 - Atualizar repositório
 sudo apt update
 
-- Instalar MySQL Workbench
+2 - Instalar MySQL Workbench
 sudo apt install mysql-workbench
 
-- Executar MySQL Workbench (também pode executar ao pesquisar por "workbench" em uma GUI do linux)
+3 - Executar MySQL Workbench (também pode executar ao pesquisar por "workbench" em uma GUI do linux)
 mysql-workbench
 
 
@@ -61,10 +66,14 @@ mysql-workbench
 4 - === CRIAR BANCO DE DADOS ===
 ================================
 
-- Criar um banco de dados (rodar no prompt do MySQL OU no MySQL workbench)
+1 - Acessar banco de dados. Pode ser workbench ou linha de comando (conforme o comando abaixo)
+mysql -u root -p
+(Enter password:) password
+
+2 - Criar um banco de dados (rodar no prompt do MySQL OU no MySQL workbench)
 CREATE database digital_innovation_one;
 
-- Usar o banco recém criado (digital_innovation_one)
+3 - Usar o banco recém criado (digital_innovation_one) (rodar no prompt do MySQL OU no MySQL workbench)
 USE digital_innovation_one;
 
 
@@ -72,16 +81,26 @@ USE digital_innovation_one;
 5 - === CRIAR UMA TABELA ===
 ============================
 
-- (CASO NÂO ESTEJA NO BANCO DE DADOS) Mudar para o banco digital_innovation_one
+1 - Acessar banco de dados. Pode ser workbench ou linha de comando (conforme o comando abaixo)
+mysql -u root -p
+(Enter password:) password
+
+2 - (CASO NÂO ESTEJA NO BANCO DE DADOS) Mudar para o banco digital_innovation_one (rodar no prompt do MySQL OU no MySQL workbench)
 USE digital_innovation_one;
 
-- Criar uma tabela no banco de dados (rodar no prompt do MySQL OU no MySQL workbench)
+3 - Criar uma tabela no banco de dados (rodar no prompt do MySQL OU no MySQL workbench)
 CREATE TABLE aluno (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(80) NOT NULL,
     idade INTEGER NOT NULL,
     estado CHARACTER(2) NOT NULL
 );
+
+4 - Adicionar alguns exemplos (rodar no prompt do MySQL OU no MySQL workbench)
+INSERT INTO aluno(nome, idade, estado) VALUES ('Pedro', 20, 'RJ');
+INSERT INTO aluno(nome, idade, estado) VALUES ('Maria', 35, 'AC');
+INSERT INTO aluno(nome, idade, estado) VALUES ('Joao', 10, 'SC');
+INSERT INTO aluno(nome, idade, estado) VALUES ('Ana', 51, 'GO');
 
 
 
