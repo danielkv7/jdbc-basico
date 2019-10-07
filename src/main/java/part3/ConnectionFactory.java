@@ -10,6 +10,7 @@ import java.util.Properties;
 
 public class ConnectionFactory {
 
+    //Construtor declarado como privado. Evitando assim criar instâncias da fábrica.
     private ConnectionFactory() {
         throw new UnsupportedOperationException();
     }
