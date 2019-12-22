@@ -1,4 +1,4 @@
-# Projeto jdbc-basico
+# Projeto
 Aula básica sobre JDBC disponibilizada na Digital Innovation One (https://digitalinnovation.one)
 
 ## Passos iniciais
